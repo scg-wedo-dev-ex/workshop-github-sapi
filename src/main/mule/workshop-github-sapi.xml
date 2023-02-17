@@ -10,7 +10,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<http:request-connection protocol="HTTPS" host="api.github.com" />
 	</http:request-config>
 	<flow name="workshop-github-sapiFlow" doc:id="5417422a-2be4-4fd6-8033-1f3820e38cc5" >
-		<http:listener doc:name="Listener" doc:id="8f0b4e08-f54f-4734-b6e1-5c12893f471e" config-ref="SystemAPIConfig" path="/api/v1/github/{username}"/>
+		<http:listener doc:name="Listener" doc:id="8f0b4e08-f54f-4734-b6e1-5c12893f471e" config-ref="SystemAPIConfig" path="/coding-day/api/v1/github/{username}"/>
         <logger level="INFO" message="get:\github\{username}" />
 		<http:request method="GET" doc:name="Request" doc:id="2fef92a4-cf13-4e9d-8dcf-eea092182c1a" path='#["/users/$(attributes.uriParams.username)/repos"]' config-ref="HTTP_Request_configuration">
 			<http:query-params ><![CDATA[#[attributes.queryParams]]]></http:query-params>
